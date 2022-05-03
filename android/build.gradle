@@ -21,7 +21,7 @@ def safeExtGet(prop, fallback) {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 buildscript {
     ext.kotlin_version = '1.3.72'
@@ -47,7 +47,7 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
@@ -116,17 +116,17 @@ def configureReactNativePom(def pom) {
 afterEvaluate { project ->
     // some Gradle build hooks ref:
     // https://www.oreilly.com/library/view/gradle-beyond-the/9781449373801/ch03.html
-    task androidJavadoc(type: Javadoc) {
+    /*task androidJavadoc(type: Javadoc) {
         source = android.sourceSets.main.java.srcDirs
         classpath += files(android.bootClasspath)
         classpath += files(project.getConfigurations().getByName('compile').asList())
-        include '**/*.java'
-    }
+        include '**.java'
+    }*/
 
-    task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
+    /*task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
         classifier = 'javadoc'
         from androidJavadoc.destinationDir
-    }
+    }*/
 
     task androidSourcesJar(type: Jar) {
         classifier = 'sources'
@@ -145,15 +145,15 @@ afterEvaluate { project ->
 
     artifacts {
         archives androidSourcesJar
-        archives androidJavadocJar
+    //    archives androidJavadocJar
     }
 
-    task installArchives(type: Upload) {
+    /*task installArchives(type: Upload) {
         configuration = configurations.archives
         repositories.mavenDeployer {
             // Deploy to react-native-event-bridge/maven, ready to publish to npm
             repository url: "file://${projectDir}/../android/maven"
             configureReactNativePom pom
         }
-    }
+    }*/
 }
