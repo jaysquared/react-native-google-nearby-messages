@@ -9,14 +9,14 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   react-native-google-nearby-messages
                    DESC
-  s.homepage     = "https://github.com/github_account/react-native-google-nearby-messages"
+  s.homepage     = "https://github.com/jaysquared/react-native-google-nearby-messages"
   # brief license entry:
   s.license      = "MIT"
   # optional - use expanded license entry instead:
   # s.license    = { :type => "MIT", :file => "LICENSE" }
   s.authors      = { "Marc Rousavy" => "marcrousavy@email.com" }
   s.platforms    = { :ios => "9.0" }
-  s.source       = { :git => "https://github.com/github_account/react-native-google-nearby-messages.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/jaysquared/react-native-google-nearby-messages.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,c,m,swift}"
   s.requires_arc = true
