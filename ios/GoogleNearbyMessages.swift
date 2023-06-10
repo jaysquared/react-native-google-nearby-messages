@@ -107,7 +107,7 @@ class NearbyMessages: RCTEventEmitter {
 		}
 	}
 
-	@objc(subscribe:rejecter:)
+	@objc(unpublish:rejecter:)
 	func unpublish(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
 		print("GNM_BLE: Unpublishing...")
 		self.currentPublication = nil
